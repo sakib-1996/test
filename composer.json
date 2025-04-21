@@ -1,0 +1,17 @@
+{
+    "name": "sakib1996/test",
+    "description": "A test package that returns hello",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Sakib1996\\Test\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sakib1996\\Test\\TestServiceProvider"
+            ]
+        }
+    }
+}
