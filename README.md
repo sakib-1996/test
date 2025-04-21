@@ -1,6 +1,5 @@
-
 # Hello Laravel Package
-
+---
 A simple Laravel package that returns a "Hello" response. Built for educational and testing purposes.
 
 ## 📦 Features
@@ -121,12 +120,12 @@ You can add a view to be rendered from your package. For example, here is a simp
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hello Package</title>
-    </head>
-    <body>
-        <h1>{{ config('hello.message') }}</h1>
-    </body>
+  <head>
+    <title>Hello Package</title>
+  </head>
+  <body>
+    <h1>{{ config('hello.message') }}</h1>
+  </body>
 </html>
 ```
 
@@ -191,11 +190,10 @@ laravel-hello-app/
     }
   },
   "require": {
-    "php": "^8.0", 
-    "illuminate/support": "^9.0|^10.0|^11.0"  
+    "php": "^8.0",
+    "illuminate/support": "^9.0|^10.0|^11.0"
   }
 }
 ```
 
 ---
-
