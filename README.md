@@ -23,13 +23,13 @@ composer create-project laravel/laravel laravel-hello-app
 cd laravel-hello-app
 ```
 
-## 2. Create Your Package Directory
+### 2. Create Your Package Directory
 
 Use the following commands to set up your package directory structure.  
 Replace `YourName` with your GitHub username or vendor name, and `Hello` with your actual package name.  
 Make sure the package name matches your GitHub repository name if you plan to publish it.
 
-# Create the directory structure
+**Create the directory structure**:
 
 ```bash
 mkdir -p packages/YourName/Hello/src/routes
@@ -41,13 +41,13 @@ mkdir -p packages/YourName/Hello/src/routes
 cd packages/YourName/Hello
 ```
 
-# Create composer.json files (this will be root directory in the package)
+**Create composer.json files (this will be root directory in the package)** `composer.json`:
 
 ```bash
 touch composer.json
 ```
 
-# Create your nesesary file folder in the (src/) directory
+**Create your NECESSARY file folder in the (src/) directory** `packages/YourName/Hello/src`:
 
 ```bash
 touch src/HelloServiceProvider.php
@@ -56,7 +56,7 @@ touch src/routes/web.php
 
 #### 📌 Note: Ensure the YourName/Hello structure aligns with your Composer and PSR-4 autoloading configuration.
 
-2. **Add the package repository** to your Laravel application's `composer.json`:
+### 3. Add the package repository to your Laravel application's `composer.json`:
 
     ```json
     "repositories": [
@@ -67,7 +67,7 @@ touch src/routes/web.php
     ]
     ```
 
-3. **Require the package** using Composer:
+**Require the package** using Composer:
 
     ```bash
     composer require yourname/hello:@dev
@@ -75,8 +75,7 @@ touch src/routes/web.php
 
     This will install the package locally in your Laravel application.
 
-
-## 📁 Hare Package Structure Example
+##### 📁 Hare Package Structure Example
 
 ```bash
 laravel-hello-app/
@@ -90,7 +89,7 @@ laravel-hello-app/
                         └── web.php
 ```
 
-## 🛠️ Package composer.json Example
+##### 🛠️ Package composer.json Example
 
 ```bash
 {
