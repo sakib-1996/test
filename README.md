@@ -58,7 +58,7 @@ touch src/routes/web.php
 
 ### 3. Add the package repository to your Laravel application's `composer.json`:
 
-    ```json
+    ```bash
     "repositories": [
       {
         "type": "path",
@@ -66,18 +66,6 @@ touch src/routes/web.php
       }
     ]
     ```
-
-### 3. src/config/hello.php:
-
-This is the configuration file for the package. You can modify this file to add package-specific settings that can be customized by the application
-
-```bash
-    <?php
-
-    return [
-        'message' => 'Hello from the package config!',
-    ];
-```
 
 **Require the package** using Composer:
 
@@ -87,18 +75,86 @@ This is the configuration file for the package. You can modify this file to add 
 
     This will install the package locally in your Laravel application.
 
-##### 📁 Hare Package Structure Example
+### 4. src/config/hello.php:
 
+Make a directory for configuration (config/hello.php)
+This is the configuration file for the package. You can modify this file to add package-specific settings that can be customized by the application
+
+```bash
+    <?php
+
+        return [
+            'message' => 'Hello from the package config!',
+        ];
+```
+
+### 5. Vendor Publishing
+
+If you want your users to be able to publish configuration files, views, or other resources, you can use the publishes method in your service provider.
+
+In this example, the hello.php configuration file is published to the Laravel application's config directory. The user can run the following command to publish the configuration file:
+
+```bash
+    php artisan vendor:publish --provider="YourName\Hello\HelloServiceProvider" --tag="config"
+```
+
+This will copy the hello.php configuration file to config/hello.php in the main Laravel application.
+
+If you want to publish views, resources, or other files, you can add them to the publishes method in your service provider:
+
+```bash
+$this->publishes([
+    __DIR__.'/resources/views' => resource_path('views/vendor/hello'),
+], 'views');
+```
+
+Then, users can publish the views with the following command:
+
+```bash
+php artisan vendor:publish --provider="YourName\Hello\HelloServiceProvider" --tag="views"
+```
+
+**src/resources/views/hello.blade.php**
+You can add a view to be rendered from your package. For example, here is a simple view that renders a hello message.
+
+```bash
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Hello Package</title>
+        </head>
+        <body>
+            <h1>{{ config('hello.message') }}</h1>
+        </body>
+    </html>
+```
+**src/resources/views/hello.blade.php**
+````bash
+Route::get('/hello-view', function () {
+    return view('vendor.hello.hello');
+});
+````
+
+**Testing the Package**
+Once you have installed and published the configuration and views, you can test your package by visiting the route defined in src/routes/web.php. Simply go to:
+This will render the view located in resources/views/vendor/hello/hello.blade.php
+
+##### 📁 Hare Package Structure Example
 ```bash
 laravel-hello-app/
 └── packages/
         └── YourName/
                 └── Hello/
                     ├── composer.json
-                    └── src/
+                    └── src
+                        └── config
+                            └── hello.php:
                     ├── HelloServiceProvider.php
                     └── routes/
                         └── web.php
+                    └── resources
+                        └── views
+                            └── hello.blade.php
 ```
 
 ##### 🛠️ Package composer.json Example
