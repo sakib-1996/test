@@ -29,45 +29,47 @@ Use the following commands to set up your package directory structure.
 Replace `YourName` with your GitHub username or vendor name, and `Hello` with your actual package name.  
 Make sure the package name matches your GitHub repository name if you plan to publish it.
 
-# Create the directory structure
+##### Create the directory structure
 
 ```bash
 mkdir -p packages/YourName/Hello/src/routes
 ```
 
-# Navigate to the package folder
+##### Navigate to the package folder
 
 ```bash
 cd packages/YourName/Hello
 ```
 
-# Create composer.json files (this will be root directory in the package)
+##### Create composer.json files (this will be root directory in the package)
 
 ```bash
 touch composer.json
 ```
 
-# Create your nesesary file folder in the (src/) directory
+##### Create your nesesary file folder in the (src/) directory
 
 ```bash
 touch src/HelloServiceProvider.php
 touch src/routes/web.php
 ```
 
-#### 📌 Note: Ensure the YourName/Hello structure aligns with your Composer and PSR-4 autoloading configuration.
+📌 Note: Ensure the YourName/Hello structure aligns with your Composer and PSR-4 autoloading configuration.
 
 ## 📁 Hare Package Structure Example
+
 ```bash
 laravel-hello-app/
 └── packages/
-└── YourName/
-└── Hello/
-├── composer.json
-└── src/
-├── HelloServiceProvider.php
-└── routes/
-└── web.php
+        └── YourName/
+                └── Hello/
+                    ├── composer.json
+                    └── src/
+                    ├── HelloServiceProvider.php
+                    └── routes/
+                        └── web.php
 ```
+
 ## 🛠️ Package composer.json Example
 
 ```bash
