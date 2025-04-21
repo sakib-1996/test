@@ -57,7 +57,7 @@ touch src/routes/web.php
 #### 📌 Note: Ensure the YourName/Hello structure aligns with your Composer and PSR-4 autoloading configuration.
 
 ## 📁 Hare Package Structure Example
-``bash
+```bash
 laravel-hello-app/
 └── packages/
 └── YourName/
@@ -67,7 +67,7 @@ laravel-hello-app/
 ├── HelloServiceProvider.php
 └── routes/
 └── web.php
-``
+```
 ## 🛠️ Package composer.json Example
 
 ```bash
