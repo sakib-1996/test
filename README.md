@@ -35,7 +35,7 @@ Make sure the package name matches your GitHub repository name if you plan to pu
 mkdir -p packages/YourName/Hello/src/routes
 ```
 
-# Navigate to the package folder
+**Navigate to the package folder**:
 
 ```bash
 cd packages/YourName/Hello
@@ -66,6 +66,18 @@ touch src/routes/web.php
       }
     ]
     ```
+
+### 3. src/config/hello.php:
+
+This is the configuration file for the package. You can modify this file to add package-specific settings that can be customized by the application
+
+```bash
+    <?php
+
+    return [
+        'message' => 'Hello from the package config!',
+    ];
+```
 
 **Require the package** using Composer:
 
